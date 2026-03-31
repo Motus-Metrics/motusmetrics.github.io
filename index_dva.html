@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <title>Riemannian Engine | Tech Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reset.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/night.min.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --neon-cyan: #00ffcc;
+      --neon-red: #ff4d4d;
+      --bg-dark: #050505;
+    }
+
+    body {
+      background-color: var(--bg-dark) !important;
+      font-family: 'Inter', sans-serif !important;
+    }
+
+    .reveal {
+      font-family: 'Inter', sans-serif !important;
+      background-color: var(--bg-dark);
+    }
+
+    .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+      font-family: 'Inter', sans-serif !important;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: var(--neon-cyan);
+      letter-spacing: 2px;
+    }
+
+    .highlight { color: var(--neon-red); }
+
+    .grid-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      text-align: left;
+    }
+
+    .video-container {
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 0 30px rgba(0, 255, 204, 0.2);
+      border: 1px solid rgba(0, 255, 204, 0.3);
+      background: #000;
+    }
+
+    .phone-mockup {
+      width: 300px;
+      height: 540px;
+      margin: 0 auto;
+      border: 8px solid #222;
+      border-radius: 40px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+    }
+
+    .phone-mockup video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .metrics-list {
+      list-style: none !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    .metrics-list li {
+      background: rgba(255,255,255,0.05);
+      margin-bottom: 15px !important;
+      padding: 15px 20px !important;
+      border-radius: 10px;
+      border-left: 4px solid var(--neon-cyan);
+      font-size: 0.7em !important;
+    }
+
+    .metrics-list li strong {
+      display: block;
+      color: var(--neon-cyan);
+      font-size: 1.2em;
+    }
+
+    /* Oprava bílých slajdů */
+    .reveal .slides section {
+      background-color: var(--bg-dark);
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+<div class="reveal">
+  <div class="slides">
+
+    <section>
+      <h1 style="font-size: 3em;">Riemannian <span class="highlight">Engine</span></h1>
+      <p style="color: #666; font-weight: 300;">Nová generace analýzy lidského pohybu</p>
+      <div style="margin-top: 100px; font-size: 0.5em; color: var(--neon-cyan); opacity: 0.6;">
+        TECH DEMO & HLEDÁNÍ PARTNERŮ | 2026
+      </div>
+    </section>
+
+    <section>
+      <div class="grid-wrapper">
+        <div class="video-container">
+          <video data-autoplay loop src="riemann_globe.mp4"></video>
+        </div>
+        <div>
+          <h3>Proč to děláme jinak?</h3>
+          <p style="font-size: 0.7em;">Běžná AI analyzuje pohyb jako rovné čáry na plochém papíře (Euklidovský prostor). Ale lidské tělo se pohybuje v rotacích a křivkách.</p>
+          <p class="fragment" style="color: var(--neon-cyan); font-size: 0.6em; margin-top: 20px;">>> My mapujeme pohyb na zakřivený povrch (Riemannovu varietu).</p>
+          <p class="fragment" style="color: #ccc; font-size: 0.6em; margin-top: 10px;">>> Výhoda? Nepotřebujeme obří datasety a superpočítače. Fyzika a biomechanika už je totiž zabudovaná přímo v naší matematice.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="grid-wrapper" style="grid-template-columns: 0.8fr 1.2fr;">
+
+        <div style="text-align: right;">
+          <h3>Proč to děláme jinak?</h3>
+          <p style="font-size: 0.6em;">Aktuálně bereme surové souřadnice kloubů z běžných AI modelů a transformujeme je do tzv. <strong>kovariančních matic (SPD)</strong>.</p>
+
+          <p style="font-size: 0.55em; color: var(--neon-cyan); margin-top: 15px; line-height: 1.5;">
+            <strong>V čem je ten zlom?</strong> Nesledujeme jen izolované pozice rukou nebo nohou. Algoritmus sleduje, jak přesně <strong>všechny klouby interagují vzájemně mezi sebou</strong>. Získáváme tak unikátní geometrické "DNA" pohybu, které je imunní vůči šumu a zkreslení kamery.
+          </p>
+
+          <div class="fragment" style="border-right: 4px solid var(--neon-red); padding-right: 15px; margin-top: 20px;">
+            <strong style="color: var(--neon-red); font-size: 0.7em;">Roadmapa:</strong>
+            <p style="font-size: 0.5em; color: #888;">Do budoucna pracujeme na vlastním pose-trackingu, který bude tuto logiku počítat už od prvního pixelu. To je ale "vyšší dívčí", která přijde časem.</p>
+          </div>
+        </div>
+
+        <div class="video-container" style="overflow: hidden;">
+          <video data-autoplay loop src="elipsa.mp4" style="width: 100%; transform: scale(1.2); display: block;"></video>
+        </div>
+
+      </div>
+    </section>
+
+    <section>
+      <h2 style="margin-bottom: 40px;">Proč zrovna <span class="highlight">vzpírání?</span></h2>
+      <p style="font-size: 0.8em;">Protože sám vzpírám. Stříhat a analyzovat svoje osobáky je zábava...</p>
+      <p class="fragment" style="font-size: 0.8em; color: var(--neon-cyan);">Ale když mám 10 videí z tréninku svých svěřenců, je to hrozná rutina a bere to čas.</p>
+      <p class="fragment" style="font-size: 0.7em; color: #888; margin-top: 30px;">Chtěl jsem si ušetřit práci, a tak jsem vzpírání použil jako "zátěžový test" pro naši technologii.</p>
+    </section>
+
+    <section>
+      <h3 style="margin-bottom: 40px;">Tech Demo: Automatizace</h3>
+      <div class="phone-mockup">
+        <video data-autoplay loop muted playsinline src="smart_edit_snatch.mp4"></video>
+      </div>
+      <p style="font-size: 0.5em; color: #555; margin-top: 30px;">Z hrubého záznamu engine sám pozná fáze pohybu a video sestříhá.</p>
+    </section>
+
+    <section>
+      <h3>Tech Demo: Analýza Nadhozu</h3>
+      <div style="display: flex; align-items: center; justify-content: center; gap: 50px; height: 600px;">
+
+        <div class="video-container" style="width: 300px; height: 533px; flex-shrink: 0;">
+          <video data-autoplay muted src="c&j_report.mp4" style="width: 100%; height: 100%; object-fit: cover;"></video>
+        </div>
+
+        <ul class="metrics-list" style="flex: 1; max-width: 500px;">
+          <li class="fragment">
+            <strong>⏱ PAUZA: 8.0s</strong>
+            <span>Stabilizace po přemístění (Clean)</span>
+          </li>
+          <li class="fragment">
+            <strong> LEG DRIVE: 92.4%</strong>
+            <span>Načasování přemístění (ruce nepředbíhají nohy)</span>
+          </li>
+          <li class="fragment">
+            <strong> BAR PATH: 0.042 rad</strong>
+            <span>Odchylka od ideální geodetiky</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2 style="margin-bottom: 60px;">Můj cíl: <span class="highlight">Ekosystém</span></h2>
+      <p style="font-size: 0.7em; margin-bottom: 40px;">Nechci dělat, prodávat a spravovat aplikaci na vzpírání.<br>Můj cíl je vyvíjet a licencovat toto výpočetní jádro.</p>
+
+      <div style="display: flex; justify-content: center; gap: 40px;">
+        <div class="fragment" style="border: 1px solid #333; padding: 40px; border-radius: 20px; flex: 1; background: #080808;">
+          <h4 style="color: var(--neon-cyan); font-size: 0.8em;">Hledám Partnery</h4>
+          <p style="font-size: 0.6em; color: #ccc;">Máte nápad na aplikaci z fyzioterapie, rehabilitace nebo jiného sportu? Vy máte nápad, já mám engine. Jsem otevřený spolupráci a individualizaci technologie pro váš projekt.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h1 style="font-size: 3.5em;">Zvedněte to <span class="highlight">s námi</span></h1>
+      <p style="color: var(--neon-cyan); margin-bottom: 50px;">Vaše doménová znalost. Náš matematický aparát.</p>
+
+      <div style="display: flex; justify-content: center; gap: 30px; margin-top: 40px;">
+        <a href="https://github.com/Motus-Metrics" target="_blank" style="text-decoration: none; border: 2px solid var(--neon-cyan); padding: 15px 30px; border-radius: 10px; color: white; font-weight: bold; background: rgba(0, 255, 204, 0.05); transition: 0.3s;">
+          Prozkoumat GitHub
+        </a>
+
+        <a href="research@motusmetrics.net" style="text-decoration: none; background: var(--neon-red); padding: 15px 30px; border-radius: 10px; color: white; font-weight: bold; box-shadow: 0 0 20px rgba(255, 77, 77, 0.4);">
+          Pojďme to probrat
+        </a>
+      </div>
+
+      <div style="margin-top: 60px; font-size: 0.5em; color: #555; border-top: 1px solid #222; padding-top: 20px;">
+        <p><strong>motusmetrics.net</strong> | Výpočetní jádro pro novou generaci biomechaniky</p>
+        <p style="font-style: italic; opacity: 0.7;">P.S.: Během vývoje tohoto enginu nebyl zraněn žádný Euklides.</p>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    center: true,
+    transition: 'slide',
+    backgroundTransition: 'fade',
+    width: 1280,
+    height: 720,
+    margin: 0.1
+  });
+</script>
+
+</body>
+</html>
